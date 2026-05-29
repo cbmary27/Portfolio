@@ -134,7 +134,6 @@
     backdrop-filter: blur(8px);
     z-index: 10;
     border-bottom: 1px solid #e8d9d5;
-    overflow: hidden;
   }
 
   nav {
@@ -461,15 +460,6 @@
     color: #a89f96;
   }
 
-  .bug {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    pointer-events: none;
-    opacity: 0;
-  }
-
   @media (max-width: 600px) {
     .nav-links { gap: 1rem; }
     section { padding: 3rem 0; }
@@ -514,25 +504,4 @@
   }
 
   animateBlob();
-
-  // Bug crawl
-  const bug = document.getElementById('bug');
-
-  function crawlBug() {
-    bug.style.transition = 'none';
-    bug.style.left = '-30px';
-    bug.style.opacity = '1';
-
-    setTimeout(() => {
-      bug.style.transition = 'left 4s linear';
-      bug.style.left = '110%';
-
-      setTimeout(() => {
-        bug.style.opacity = '0';
-        setTimeout(crawlBug, Math.random() * 8000 + 5000);
-      }, 4000);
-    }, 100);
-  }
-
-  setTimeout(crawlBug, 2000);
 </script>
