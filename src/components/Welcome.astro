@@ -15,8 +15,9 @@
 
   <main>
     <section id="hero">
+      <div class="blob" id="blob"></div>
       <div class="tag">Full Stack Developer</div>
-      <h1>Hi, I'm <span class="highlight">Chris</span> 👋</h1>
+      <h1>Hi, I'm <span class="highlight" id="typed"></span><span class="cursor">|</span> 👋</h1>
       <p class="subtitle">I build things at the intersection of software development and AI. I love debugging and translating ideas into products.</p>
       <div class="cta">
         <a href="#projects" class="btn-primary">See my work</a>
@@ -129,7 +130,7 @@
   }
 
   .nav-links a:hover {
-    color: #cce6e7;
+    color: #0f878f;
   }
 
   main {
@@ -140,11 +141,33 @@
 
   section {
     padding: 5rem 0;
-    border-bottom: 1px solid #31b9d4;
+    border-bottom: 1px solid #e8e0d5;
   }
 
   #hero {
     padding-top: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero > *:not(.blob) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .blob {
+    position: absolute;
+    top: -80px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #c5eced 0%, #e8f7f7 50%, transparent 100%);
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    z-index: 0;
+    filter: blur(50px);
+    opacity: 0.8;
+    transition: transform 0.15s ease-out;
+    will-change: transform;
   }
 
   .tag {
@@ -172,6 +195,19 @@
     color: #0f878f;
   }
 
+  .cursor {
+    display: inline-block;
+    color: #0f878f;
+    font-weight: 300;
+    animation: blink 0.8s step-end infinite;
+    margin-left: 1px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
   .subtitle {
     font-size: 1.15rem;
     color: #384244;
@@ -197,7 +233,7 @@
   }
 
   .btn-primary:hover {
-    background: rgb(16, 108, 213);
+    background: #0a6b72;
   }
 
   .btn-secondary {
@@ -309,3 +345,41 @@
     section { padding: 3rem 0; }
   }
 </style>
+
+<script>
+  // Typing effect
+  const typed = document.getElementById('typed');
+  const text = 'Chris';
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      typed.textContent += text[i];
+      i++;
+      setTimeout(type, 120);
+    }
+  }
+
+  setTimeout(type, 500);
+
+  // Wobbly blob on scroll
+  const blob = document.getElementById('blob');
+  let lastScroll = window.scrollY;
+  let velocity = 0;
+  let blobY = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    velocity = currentScroll - lastScroll;
+    lastScroll = currentScroll;
+    blobY -= velocity * 0.4;
+  });
+
+  function animateBlob() {
+    blobY *= 0.88;
+    blob.style.transform = `translateY(${blobY}px)`;
+    requestAnimationFrame(animateBlob);
+  }
+
+  animateBlob();
+</script>
