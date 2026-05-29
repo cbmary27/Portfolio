@@ -19,7 +19,7 @@
       <div class="blob" id="blob"></div>
       <div class="tag">Full Stack Developer</div>
       <h1>Hi, I'm <span class="highlight" id="typed"></span><span class="cursor">|</span> 👩🏽‍💻</h1>
-      <p class="subtitle">I build things at the intersecti on of software development and AI. I love debugging and translating ideas into meaningful products.</p>
+      <p class="subtitle">I build things at the intersection of software development and AI. I love debugging and translating ideas into meaningful products.</p>
       <div class="cta">
 		<a href="/Chris_resume.pdf" class="btn-primary" target="_blank">Resume</a>
         <a href="#projects" class="btn-primary">See my work</a>
@@ -37,12 +37,12 @@
       <h2>Projects</h2>
       <div class="project-grid">
         <div class="project-card">
-          <div class="project-tag">AI + Web</div>
-          <h3>Smart Notes</h3>
-          <p>An AI-powered note-taking app that summarizes, tags, and connects your ideas automatically.</p>
+          <div class="project-tag">Full Stack</div>
+          <h3>Study BUddy</h3>
+          <p>Study companian app with real-time messaging through the Stream API, tutor + tutee matching, and geolocation-based study buddy discovery, built with React, C#, Firebase, Supabase and Stripe API for payment processing.</p>
           <div class="project-links">
-            <a href="#">GitHub</a>
-            <a href="#">Live Demo</a>
+            <a href="https://github.com/cs501-s26-magenta/StudyBuddyApp">GitHub</a>
+            <a href="https://drive.google.com/file/d/1M3mpXDOjYeYWEsAPxzc6-LB47Uicu_nQ/view?usp=drive_link">Live Demo</a>
           </div>
         </div>
         <div class="project-card">
@@ -67,14 +67,14 @@
     </section>
 
     <section id="contact">
-      <h2>Let's talk</h2>
-      <p>I'm always open to new opportunities, collaborations, or just a good conversation about tech and AI.</p>
-      <a href="mailto:chris@example.com" class="btn-primary">Say hello</a>
+      <h2>Let's connect!</h2>
+      <p>I'm always open to new opportunities, collaborations, or just a good conversation!</p>
+      <a href="mailto:chris27@bu.edu" class="btn-primary">Say hello</a>
     </section>
   </main>
 
   <footer>
-    <p>Built by Chris · 2025</p>
+    <p>Built by Chris · 2026</p>
   </footer>
 </div>
 
@@ -347,16 +347,6 @@
     .nav-links { gap: 1rem; }
     section { padding: 3rem 0; }
   }
-
-  //to animate the bug moving
-  .bug {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    pointer-events: none;
-    opacity: 0;
-  }
 </style>
 
 <script>
@@ -395,24 +385,4 @@
   }
 
   animateBlob();
-
-   const bug = document.getElementById('bug');
-  
-  function crawlBug() {
-    bug.style.transition = 'none';
-    bug.style.left = '-30px';
-    bug.style.opacity = '1';
-    
-    setTimeout(() => {
-      bug.style.transition = 'left 4s linear';
-      bug.style.left = '110%';
-      
-      setTimeout(() => {
-        bug.style.opacity = '0';
-        setTimeout(crawlBug, Math.random() * 8000 + 5000);
-      }, 4000);
-    }, 100);
-  }
-
-  setTimeout(crawlBug, 2000);
 </script>
