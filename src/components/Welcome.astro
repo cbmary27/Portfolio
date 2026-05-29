@@ -11,6 +11,7 @@
         <a href="#contact">Contact</a>
       </div>
     </nav>
+    <div class="bug" id="bug">🐛</div>
   </header>
 
   <main>
@@ -383,4 +384,24 @@
   }
 
   animateBlob();
+
+   const bug = document.getElementById('bug');
+  
+  function crawlBug() {
+    bug.style.transition = 'none';
+    bug.style.left = '-30px';
+    bug.style.opacity = '1';
+    
+    setTimeout(() => {
+      bug.style.transition = 'left 4s linear';
+      bug.style.left = '110%';
+      
+      setTimeout(() => {
+        bug.style.opacity = '0';
+        setTimeout(crawlBug, Math.random() * 8000 + 5000);
+      }, 4000);
+    }, 100);
+  }
+
+  setTimeout(crawlBug, 2000);
 </script>
