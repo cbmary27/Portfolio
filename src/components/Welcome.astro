@@ -6,9 +6,16 @@ import '../styles/global.css';
   <header>
     <nav>
       <span class="logo">Chris's Portfolio</span>
-      <div class="nav-links">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -16,8 +23,10 @@ import '../styles/global.css';
 
   <main>
     <section id="hero">
-      <div class="blob" id="blob"></div>
-      <div class="tag">Full Stack Developer</div>
+  <div class="blob" id="blob"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="tag">Software Engineer</div>
       <h1>Hi, I'm <span class="highlight" id="typed"></span><span class="cursor">|</span> 👩🏽‍💻</h1>
       <p class="subtitle">I build things at the intersection of software development and AI. I love debugging and translating ideas into meaningful products.</p>
       <div class="cta">
@@ -25,20 +34,28 @@ import '../styles/global.css';
         <a href="#projects" class="btn-primary">See my work</a>
         <a href="#contact" class="btn-secondary">Get in touch</a>
       </div>
-    </section>
+    </div>
+    <div class="hero-location">
+    <div class="hero-photo-wrap">
+      <img src="/photo.jpg" alt="Chris" class="hero-photo" />
+    </div>
+    <p class="boston-pin">📍 Boston, MA</p>
+    <div class="hero-socials">
+      <a href="https://www.linkedin.com/in/chris-mary-benson-909ab6263/" target="_blank" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/cbmary27" target="_blank" aria-label="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+    </div>
+  </div>
+  </div>
+</section>
 
     <section id="about">
       <h2>About me</h2>
       <p>I'm a current graduate student at Boston University where I am working towards getting my Master's degree in Computer Science! I'm an aspiring software engineer, interested in how AI is changing the way we build software. I enjoy working across the stack; from designing intuitive UIs to building backends and learning how to integrate intelligent systems.</p>
       <p>If you don't find me debugging something, I'm probably gaming or reading <3</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/chris-mary-benson-909ab6263/" target="_blank" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://github.com/cbmary27" target="_blank" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        </a>
-      </div>
 
       <div class="skills">
         <h3>Skills</h3>
@@ -46,19 +63,19 @@ import '../styles/global.css';
           <div class="skill-group">
             <span class="skill-label">Languages</span>
             <div class="skill-tags">
-              <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>C#</span><span>Java</span><span>C</span>
+              <span>Python</span><span>C#</span><span>Java</span><span>C++</span><span>JavaScript</span><span>TypeScript</span>
             </div>
           </div>
           <div class="skill-group">
             <span class="skill-label">Frameworks & Tools</span>
             <div class="skill-tags">
-              <span>React</span><span>Node.js</span><span>Firebase</span><span>Supabase</span><span>Git</span><span>Stripe</span>
+              <span>Spring Webflux</span><span>React</span><span>Node.js</span><span>Firebase</span><span>Supabase</span><span>Git</span>
             </div>
           </div>
           <div class="skill-group">
             <span class="skill-label">Areas</span>
             <div class="skill-tags">
-              <span>Full Stack</span><span>ML / AI</span><span>Systems</span><span>Research</span>
+              <span>Web Development</span><span>ML / AI</span><span>Systems</span><span>Research</span>
             </div>
           </div>
         </div>
@@ -97,6 +114,34 @@ import '../styles/global.css';
         </div>
       </div>
       <p class="github-cta">For more of my work, check out my <a href="https://github.com/cbmary27" target="_blank">GitHub</a>!</p>
+    </section>
+
+   <section id="achievements">
+      <h2>Achievements</h2>
+      <h3 class="achievements-sub">I believe that every small win counts!</h3>
+      <div class="carousel">
+        <button class="carousel-btn prev" id="prev">&#8592;</button>
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" id="carousel-track">
+            <div class="achievement-card">
+              <img src="/Risk_realm.jpg" alt="Risk Realm Game Competition" class="achievement-img" />
+              <div class="achievement-content">
+                <div class="achievement-tag">🏆 1st Place</div>
+                <h3>Summer Game Development Competition</h3>
+                <p>Won first place with teammates Juwaria Qadri and Vanshika Sangtani by developing "Risk Realm"; a 2D Unity game that introduces users to the world of Insurance Broking, built with Unity UI and C#.</p>
+              </div>
+            </div>
+            <div class="achievement-card">
+              <div class="achievement-content">
+                <div class="achievement-tag">🌟 Coming Soon</div>
+                <h3>More achievements</h3>
+                <p>Stay tuned for more!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next" id="next">&#8594;</button>
+      </div>
     </section>
 
     <section id="contact">
@@ -147,4 +192,41 @@ import '../styles/global.css';
   }
 
   animateBlob();
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+      navMenu.classList.remove('open');
+    }
+  });
+
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+    });
+  });
+
+  // Carousel
+const track = document.getElementById('carousel-track');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+let current = 0;
+const total = track.children.length;
+
+next.addEventListener('click', () => {
+  current = (current + 1) % total;
+  track.style.transform = `translateX(-${current * 100}%)`;
+});
+
+prev.addEventListener('click', () => {
+  current = (current - 1 + total) % total;
+  track.style.transform = `translateX(-${current * 100}%)`;
+});
 </script>
