@@ -1,0 +1,248 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<div id="container" class="journey-page">
+		<header>
+			<nav>
+				<a class="logo" href={`${import.meta.env.BASE_URL}/`}>Chris's Portfolio</a>
+				<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<div class="nav-menu" id="nav-menu">
+					<a href={`${import.meta.env.BASE_URL}/experience/`} aria-current="page">Experience &amp; Education</a>
+					<a href={`${import.meta.env.BASE_URL}/#about`}>About</a>
+					<a href={`${import.meta.env.BASE_URL}/#projects`}>Projects</a>
+					<a href={`${import.meta.env.BASE_URL}/#achievements`}>Achievements</a>
+					<a href={`${import.meta.env.BASE_URL}/#contact`}>Contact</a>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<section class="journey-intro">
+				<p class="tag">My journey</p>
+				<h1>Experience <span class="highlight">&amp;</span> Education</h1>
+				<p class="subtitle">A look at what I'm learning, building, and exploring along the way.</p>
+			</section>
+
+			<section class="journey-section" aria-labelledby="experience-heading">
+				<div class="journey-section-heading">
+					<p class="journey-kicker">Where I contribute</p>
+					<h2 id="experience-heading">Experience</h2>
+				</div>
+
+				<div class="journey-list">
+					<article class="journey-card">
+						<div class="journey-date">September 2026 – Present</div>
+						<div class="journey-detail">
+							<span class="journey-type">Open source</span>
+							<h3>AI OpenSource Capstone</h3>
+							<p class="journey-organization">CodePath.org</p>
+							<p>Accepted into the AI OpenSource Capstone, contributing to open source and developing rubrics with agentic AI to help identify good issues.</p>
+						</div>
+					</article>
+
+					<article class="journey-card">
+						<div class="journey-date">October 2026 – Present</div>
+						<div class="journey-detail">
+							<span class="journey-type">Research</span>
+							<h3>Adaptive Batching in Streaming Systems</h3>
+							<p class="journey-organization">Streaming Systems</p>
+							<p>Developing a mechanism for adaptive batching as an alternative to standard static batching techniques.</p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section class="journey-section education-section" aria-labelledby="education-heading">
+				<div class="journey-section-heading">
+					<p class="journey-kicker">What I'm learning</p>
+					<h2 id="education-heading">Education</h2>
+				</div>
+
+				<div class="journey-list">
+					<article class="journey-card">
+						<div class="journey-date">In progress</div>
+						<div class="journey-detail">
+							<span class="journey-type">Graduate studies</span>
+							<h3>Master's in Computer Science</h3>
+							<p class="journey-organization">Boston University</p>
+							<p>Exploring software development, systems, and how AI is changing the way we build software.</p>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<div class="journey-back">
+				<a class="btn-secondary" href={`${import.meta.env.BASE_URL}/`}>Back to home</a>
+			</div>
+		</main>
+
+		<footer>
+			<p>Built by Chris · 2026</p>
+		</footer>
+	</div>
+</Layout>
+
+<script>
+	const hamburger = document.getElementById('hamburger');
+	const navMenu = document.getElementById('nav-menu');
+
+	hamburger?.addEventListener('click', () => {
+		const isOpen = navMenu?.classList.toggle('open') ?? false;
+		hamburger.setAttribute('aria-expanded', String(isOpen));
+		hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+	});
+
+	document.addEventListener('click', (event) => {
+		if (
+			hamburger &&
+			navMenu &&
+			event.target instanceof Node &&
+			!hamburger.contains(event.target) &&
+			!navMenu.contains(event.target)
+		) {
+			navMenu.classList.remove('open');
+			hamburger.setAttribute('aria-expanded', 'false');
+			hamburger.setAttribute('aria-label', 'Open menu');
+		}
+	});
+
+	navMenu?.querySelectorAll('a').forEach((link) => {
+		link.addEventListener('click', () => {
+			navMenu.classList.remove('open');
+			hamburger?.setAttribute('aria-expanded', 'false');
+			hamburger?.setAttribute('aria-label', 'Open menu');
+		});
+	});
+</script>
+
+<style>
+	.journey-page main {
+		padding-bottom: 2rem;
+	}
+
+	.journey-intro {
+		padding-top: 5rem;
+		padding-bottom: 3.5rem;
+	}
+
+	.journey-intro h1 {
+		max-width: 700px;
+	}
+
+	.journey-intro .subtitle {
+		margin-bottom: 0;
+	}
+
+	.journey-section {
+		padding: 2.5rem 0 3.5rem;
+		border-bottom: 1px solid #e8e0d5;
+	}
+
+	.journey-section-heading {
+		margin-bottom: 1.5rem;
+	}
+
+	.journey-section-heading h2 {
+		margin-bottom: 0;
+	}
+
+	.journey-kicker {
+		color: #0f878f;
+		font-size: 0.75rem;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.45rem;
+		text-transform: uppercase;
+	}
+
+	.journey-list {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.journey-card {
+		display: grid;
+		grid-template-columns: 175px minmax(0, 1fr);
+		gap: 1.5rem;
+		padding: 1.5rem;
+		background: #fff;
+		border: 1px solid #e8e0d5;
+		border-radius: 12px;
+	}
+
+	.journey-date {
+		padding-top: 0.15rem;
+		color: #6b6560;
+		font-size: 0.88rem;
+	}
+
+	.journey-type {
+		display: inline-block;
+		margin-bottom: 0.65rem;
+		padding: 0.25rem 0.65rem;
+		border-radius: 100px;
+		background: #e1f5ee;
+		color: #085041;
+		font-size: 0.75rem;
+		font-weight: 500;
+	}
+
+	.journey-detail h3 {
+		margin-bottom: 0.35rem;
+		font-family: 'Lora', serif;
+		font-size: 1.2rem;
+	}
+
+	.journey-organization {
+		margin-bottom: 0.7rem;
+		color: #0f878f;
+		font-weight: 500;
+	}
+
+	.journey-detail p:last-child {
+		max-width: 560px;
+		color: #6b6560;
+		font-size: 0.92rem;
+		line-height: 1.7;
+	}
+
+	.education-section {
+		border-bottom: 0;
+	}
+
+	.journey-back {
+		padding: 0 0 2rem;
+	}
+
+	.journey-page footer {
+		border-top: 1px solid #e8e0d5;
+	}
+
+	.journey-page .logo {
+		text-decoration: none;
+	}
+
+	.journey-page .nav-menu a[aria-current='page'] {
+		background: #f5ebe0;
+		color: #0f878f;
+	}
+
+	@media (max-width: 600px) {
+		.journey-intro {
+			padding-top: 3.5rem;
+		}
+
+		.journey-card {
+			grid-template-columns: 1fr;
+			gap: 0.7rem;
+			padding: 1.25rem;
+		}
+	}
+</style>
