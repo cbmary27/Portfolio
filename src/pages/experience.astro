@@ -38,7 +38,10 @@ import Layout from '../layouts/Layout.astro';
 
 				<div class="journey-list">
 					<article class="journey-card">
-						<div class="journey-date">January 2024 – July 2024</div>
+						<div class="journey-side">
+							<div class="journey-logo"><img src={`${import.meta.env.BASE_URL}/logos/odex.png`} alt="ODeX Global logo" loading="lazy" /></div>
+							<div class="journey-date">January 2024 – July 2024</div>
+						</div>
 						<div class="journey-detail">
 							<span class="journey-type">Internship</span>
 							<h3>Backend Developer</h3>
@@ -49,7 +52,10 @@ import Layout from '../layouts/Layout.astro';
 					</article>
 
 					<article class="journey-card">
-						<div class="journey-date">Feb 2025 – May 2025</div>
+						<div class="journey-side">
+							<div class="journey-logo"><img src={`${import.meta.env.BASE_URL}/logos/abu-dhabi-university.png`} alt="Abu Dhabi University logo" loading="lazy" /></div>
+							<div class="journey-date">Feb 2025 – May 2025</div>
+						</div>
 						<div class="journey-detail">
 							<span class="journey-type">Internship</span>
 							<h3>IT intern</h3>
@@ -68,7 +74,10 @@ import Layout from '../layouts/Layout.astro';
 
 				<div class="journey-list">
 					<article class="journey-card">
-						<div class="journey-date">In progress</div>
+						<div class="journey-side">
+							<div class="journey-logo"><img src={`${import.meta.env.BASE_URL}/logos/boston-university.svg`} alt="Boston University logo" loading="lazy" /></div>
+							<div class="journey-date">In progress</div>
+						</div>
 						<div class="journey-detail">
 							<span class="journey-type">Graduate studies</span>
 							<h3>Master's in Computer Science</h3>
@@ -77,7 +86,10 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					</article>
 					<article class="journey-card">
-						<div class="journey-date">Completed</div>
+						<div class="journey-side">
+							<div class="journey-logo"><img src={`${import.meta.env.BASE_URL}/logos/bits-pilani.svg`} alt="BITS Pilani, Dubai Campus logo" loading="lazy" /></div>
+							<div class="journey-date">Completed</div>
+						</div>
 						<div class="journey-detail">
 							<span class="journey-type">Undergraduate studies</span>
 							<h3>Bachelor's in Computer Science - Distinction</h3>
@@ -183,8 +195,36 @@ import Layout from '../layouts/Layout.astro';
 		padding: 1.5rem;
 	}
 
+	.journey-side {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.journey-logo {
+		width: 96px;
+		height: 96px;
+		padding: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f4f1ff;
+		box-shadow:
+			0 -3px 0 0 var(--line-bright),
+			0 3px 0 0 var(--line-bright),
+			-3px 0 0 0 var(--line-bright),
+			3px 0 0 0 var(--line-bright),
+			6px 6px 0 0 var(--bg-deep);
+	}
+
+	.journey-logo img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+	}
+
 	.journey-date {
-		padding-top: 0.2rem;
 		font-family: var(--font-label);
 		color: var(--gold);
 		font-size: 0.7rem;
@@ -244,6 +284,17 @@ import Layout from '../layouts/Layout.astro';
 			grid-template-columns: 1fr;
 			gap: 0.7rem;
 			padding: 1.25rem;
+		}
+
+		.journey-side {
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.journey-logo {
+			width: 64px;
+			height: 64px;
+			padding: 6px;
 		}
 	}
 </style>

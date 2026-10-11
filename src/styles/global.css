@@ -86,7 +86,8 @@ body::after {
 .project-card,
 .bento-card,
 .journey-card,
-.hero-scene {
+.hero-scene,
+.profile-card {
   background: var(--panel);
   box-shadow:
     0 -3px 0 0 var(--line),
@@ -344,7 +345,7 @@ h2::before {
 }
 
 .skills {
-  margin-top: 2.5rem;
+  margin-top: 2.25rem;
 }
 
 .skills h3 {
@@ -375,7 +376,7 @@ h2::before {
   color: var(--dim);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  min-width: 160px;
+  min-width: 140px;
   padding-top: 0.4rem;
 }
 
@@ -501,24 +502,33 @@ h2::before {
   min-width: 0;
 }
 
-.hero-meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem 1.25rem;
-  margin-top: 2.25rem;
+.about-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3rem;
+  align-items: start;
 }
 
-.hero-avatar {
-  width: 56px;
-  height: 56px;
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.25rem 1.25rem 1.1rem;
+}
+
+.profile-photo {
+  width: 190px;
+  height: 190px;
   object-fit: cover;
   display: block;
   box-shadow:
     0 -3px 0 0 var(--pink),
     0 3px 0 0 var(--pink),
     -3px 0 0 0 var(--pink),
-    3px 0 0 0 var(--pink);
+    3px 0 0 0 var(--pink),
+    0 0 24px rgba(255, 143, 209, 0.25);
+  margin-bottom: 0.3rem;
 }
 
 .boston-pin {
@@ -785,6 +795,22 @@ footer {
   .hero-content {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .profile-card {
+    order: -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-self: start;
+    gap: 1rem 1.25rem;
+  }
+  .profile-photo {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 0;
   }
 }
 
