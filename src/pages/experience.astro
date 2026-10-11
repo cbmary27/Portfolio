@@ -39,7 +39,8 @@ import Layout from '../layouts/Layout.astro';
 				<div class="journey-list">
 					<article class="journey-card">
 						<div class="journey-date">January 2024 – July 2024</div>
-						<div class="journey-detail">Internship</span>
+						<div class="journey-detail">
+							<span class="journey-type">Internship</span>
 							<h3>Backend Developer</h3>
 							<p class="journey-organization">ODeX Global</p>
 							<p>I Developed and tested 5+ REST APIs using Spring WebFlux to support audit and payment modules deployed to the ODeX platform. I also designed and implemented parsers to extract JSON data from XML and PDF bank transaction documents, enabling automated processing of payment records. Designed queries with MongoDB for audit module storage and PostgreSQL for structured transactional operations and user-facing CRUD features.
@@ -151,11 +152,10 @@ import Layout from '../layouts/Layout.astro';
 
 	.journey-section {
 		padding: 2.5rem 0 3.5rem;
-		border-bottom: 1px solid #e8e0d5;
 	}
 
 	.journey-section-heading {
-		margin-bottom: 1.5rem;
+		margin-bottom: 1.75rem;
 	}
 
 	.journey-section-heading h2 {
@@ -163,17 +163,17 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.journey-kicker {
-		color: #0f878f;
-		font-size: 0.75rem;
-		font-weight: 500;
-		letter-spacing: 0.08em;
-		margin-bottom: 0.45rem;
+		font-family: var(--font-label);
+		color: var(--pink);
+		font-size: 0.7rem;
+		letter-spacing: 0.04em;
+		margin-bottom: 0.5rem;
 		text-transform: uppercase;
 	}
 
 	.journey-list {
 		display: grid;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
 
 	.journey-card {
@@ -181,66 +181,58 @@ import Layout from '../layouts/Layout.astro';
 		grid-template-columns: 175px minmax(0, 1fr);
 		gap: 1.5rem;
 		padding: 1.5rem;
-		background: #fff;
-		border: 1px solid #e8e0d5;
-		border-radius: 12px;
 	}
 
 	.journey-date {
-		padding-top: 0.15rem;
-		color: #6b6560;
-		font-size: 0.88rem;
+		padding-top: 0.2rem;
+		font-family: var(--font-label);
+		color: var(--gold);
+		font-size: 0.7rem;
+		line-height: 1.6;
 	}
 
 	.journey-type {
 		display: inline-block;
-		margin-bottom: 0.65rem;
-		padding: 0.25rem 0.65rem;
-		border-radius: 100px;
-		background: #e1f5ee;
-		color: #085041;
-		font-size: 0.75rem;
-		font-weight: 500;
+		margin-bottom: 0.75rem;
+		padding: 0.25rem 0.6rem;
+		font-family: var(--font-label);
+		font-size: 0.65rem;
+		background: rgba(124, 242, 255, 0.12);
+		color: var(--cyan);
+		box-shadow: inset 0 0 0 2px rgba(124, 242, 255, 0.35);
 	}
 
 	.journey-detail h3 {
 		margin-bottom: 0.35rem;
-		font-family: 'Lora', serif;
-		font-size: 1.2rem;
+		font-family: var(--font-pixel);
+		font-size: 1.3rem;
+		font-weight: 600;
 	}
 
 	.journey-organization {
-		margin-bottom: 0.7rem;
-		color: #0f878f;
+		margin-bottom: 0.75rem;
+		color: var(--cyan);
 		font-weight: 500;
 	}
 
 	.journey-detail p:last-child {
-		max-width: 560px;
-		color: #6b6560;
+		max-width: 600px;
+		color: var(--muted);
 		font-size: 0.92rem;
 		line-height: 1.7;
 	}
 
 	.education-section {
-		border-bottom: 0;
+		background: none;
 	}
 
 	.journey-back {
 		padding: 0 0 2rem;
 	}
 
-	.journey-page footer {
-		border-top: 1px solid #e8e0d5;
-	}
-
-	.journey-page .logo {
-		text-decoration: none;
-	}
-
 	.journey-page .nav-menu a[aria-current='page'] {
-		background: #f5ebe0;
-		color: #0f878f;
+		background: var(--panel-2);
+		color: var(--cyan);
 	}
 
 	@media (max-width: 600px) {
